@@ -155,6 +155,7 @@ root.render(
 
 /* component একটার ভেতর আরেকটা থাকতে পারে */
 
+/* 
 class Clock extends React.Component{
   render (){
     return(
@@ -173,3 +174,12 @@ root.render(
   </Clock>
 </React.StrictMode>
 )
+ */
+
+/* ********************** VERY IMPORTANT ********************** */
+
+
+/* 
+props কে কখনো component এর ভেতরে change করবো না। কারণ props চেইঞ্জ হলে object Clock কে নতুন element হিসেবে
+চিনবে এবং বার বার re-render করবে,তখন আমরা একটা infinite loop এ পরে যাবো\
+ */
