@@ -154,3 +154,22 @@ root.render(
 
 
 /* component একটার ভেতর আরেকটা থাকতে পারে */
+
+class Clock extends React.Component{
+  render (){
+    return(
+      <h1 className='Heading'>
+          <span className='text'>Hello-{this.props.children},{new Date().toLocaleTimeString(this.props.locale)}</span>
+    </h1>
+    )
+  }
+}
+
+const root=ReactDOM.createRoot(document.getElementById('root'))
+root.render(
+<React.StrictMode>
+  <Clock locale="bn-BD">
+      test
+  </Clock>
+</React.StrictMode>
+)
