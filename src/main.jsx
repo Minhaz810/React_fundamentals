@@ -46,8 +46,14 @@ element{
 মাথায় রাখতে হবে যে আমি আসলে HTML লিখছি না
 */
 const index=0
-
-
+/* 
+const element=(
+  //     <h1 className='Heading' tabIndex={index}>
+  //       <span className='text'>Rongon,{new Date().toLocaleTimeString()}</span>
+  //       <img src=''></img> 
+  //     </h1>
+  //   );
+ */
 
 /* 
   element{
@@ -81,7 +87,7 @@ const index=0
 */
 
 
-//Values are Escaped in react
+//Values are Escaped in react (ensures that you can never inject anything that's not explicitly written in your application.)
 //React এর element হচ্ছে সবচাইতে ছোট building block
 
 //এবার আমরা browser DOM এ react এর element এ প্রিন্ট করতে চাই
@@ -102,3 +108,4 @@ const index=0
 //     </React.StrictMode>,
 //   )
 //   },1000)
+//প্রত্যেকবার নতুন করে element টা create হবে।
