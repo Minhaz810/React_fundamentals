@@ -17,9 +17,19 @@ import App from './App.jsx'
 
 // এই ফাংশনাল element কেই আমি বলবো একটা component
 
+
+
+
+
+
+
+/* ---------------------------------------FUNCTIONAL COMPNENT--------------------------------- */
+
 /* 
 
-let Firstcomponent= function({locale}){
+
+
+let Firstcomponent= function({locale}){  //খাতায় Diagram আঁকা
     return(
     <h1 className='Heading'>
           <span className='text'>Rongon,{new Date().toLocaleTimeString(locale)}</span>
