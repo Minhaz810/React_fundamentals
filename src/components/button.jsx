@@ -12,7 +12,6 @@ class Button extends React.Component{
     }
     render(){
         const {change,locale,show,enable} =this.props
-        console.log(this.props)
         if(!enable) return null; //শুধু return দিলে হবে না ,অর্থ্যাত যেই clock এর enable false সেই clock এর button render ই হবে না।
         return(
             <>

@@ -4,12 +4,11 @@ import viteLogo from '/vite.svg'
 import Clocklist from './components/clocklist'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const quantities=[1,2,3];
   return (
     <>
       <div>
-        <Clocklist quantity={3}/>
+        <Clocklist quantities={quantities}/>
       </div>
     </>
   )
