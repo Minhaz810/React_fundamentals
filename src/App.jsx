@@ -1,10 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-<<<<<<< HEAD
-=======
-import Clock from './components/Clock'
->>>>>>> Conditional_Rendering
+import Clocklist from './components/clocklist'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,7 +9,7 @@ function App() {
   return (
     <>
       <div>
-        <Clock/>
+        <Clocklist quantity={3}/>
       </div>
     </>
   )
