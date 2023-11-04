@@ -1,16 +1,15 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import Clock from './components/Clock'
-import ClockList from './components/clocklist'
+import Form from './components/form'
 
 function App() {
-  const nums=[1,2,3,4]
+  
 
   return (
     <>
       <div>
-        <ClockList quantities={nums}/>
+        <Form/>
       </div>
     </>
   )
