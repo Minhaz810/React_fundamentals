@@ -4,15 +4,9 @@ function Clocklist({quantities}){
     return(
         <>
         <div>
-            {quantities.map((key)=>(
+            {quantities.map((key)=>
                 <Clock key={key}/>
-
-            ))}
-        </div>
-        <div>
-            {quantities.map((key)=>(
-                <Clock key={key}/>
-            ))}
+                )}
         </div>
     </>
     );
