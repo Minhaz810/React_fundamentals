@@ -1,64 +1,95 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
+
 import ClickCounter from './components/clickCounter';
 import Section from './components/section';
 import Counter from './components/counter';
+import React from 'react';
+import themeContext from './components/context/themecontext';
 
+export default class App extends React.Component{
+      state={
+        theme:'dark'
+      }
+      render(){
+        const {theme}=this.state
+        return (
+          <>
+            <div className='app'>
+              
+              {/* <User render={(isLoggedIn)=>(isLoggedIn?"Chowdhury":"guest")}/> */}
+              <Counter>
+                {(count,increamentCount)=>
+                <ClickCounter count={count} increamentCount={increamentCount}/> }
+              </Counter>
 
+              
+              <themeContext.Provider value={{theme:this.state.theme}}>
+                <Section/>
+              </themeContext.Provider>
 
-function App() {
-
-  return (
-    <>
-      <div className='app'>
-        
-        {/* <User render={(isLoggedIn)=>(isLoggedIn?"Chowdhury":"guest")}/> */}
-        <Counter>
-        {(count,increamentCount)=>
-        <ClickCounter count={count} increamentCount={increamentCount}/> }
-        </Counter>
-
-        
-        <Section/>
-
-      </div>
-    </>
-  )
+            </div>
+          </>
+        )
+      }
 }
-
-export default App
 
 /*
 
-==> আমরা আগে user এর ভেতর props পাঠাচ্ছিলাম এইভাবে।
-  <User name="Chowdhury"/>
+==>ধরা যাক,আমরা APP এর একটা state কে component এর ভেতর use করতে চাচ্ছি।
 
-==> এখন আমরা যেই কাজটা করবো props আকারে একটা fucntion পাঠাবো,কারণ যেহেতু আমরা 
-  props আকারে object পাঠাই আর javascript এ function ও একটা object তাই চাইলে আমরা একটা 
-  function কে props আকারে পাঠাতে পারি যেই function টা আমার নাম return করবে।
+==>state={
+        theme:'dark'
+      }
+==> আমি চাচ্ছি theme টা চলে যাক hoverCounter এর কাছে।
+    
+    যদি আমরা props drilling এর মাধ্যেমে করি:
 
-  <User name={()=>"Chowdhury"}/>
+    1. Destructure করে theme কে নিয়ে আসলাম
+      const {theme}=this.state 
 
-==>User.jsx এ চলে যাই
 
-==>আমরা চাইলে function এ parameter ও পাঠাতে পারি।
-  <User name={(isLoggedIn)=>(isLoggedIn?"Chowdhury":"guest")}/>
+    2. Section component এ theme কে দিয়ে দিলাম
+      <Section theme={theme}/>
 
-==>User.jsx এ চলে যাই
 
-==>এবার আমাদের compomnent এর prop টার নাম যদি name না দিয়ে render দিয়ে দেই অর্থ্যাৎ
-  <User render={(isLoggedIn)=>(isLoggedIn?"Chowdhury":"guest")}/>
-  তাহলে এই prop টাকেই আমরা বলবো render prop.
+    3.Section সেটাকে Destructure করে Receive করলো।
+      export default function Section({theme}){
+      return(
+          <div>
+              <h1>
+                  This is a section
+              </h1>
+              <Content/>
 
-  চাইলে এটার নাম অন্য কিছুও দিতে পারতাম,কিন্তু convensionally এটার নাম render prop দিয়ে থাকি আমরা
+          </div>
+      )
 
-==>
 
-<Counter render={(counter,increamentCount)=>
-            <ClickCounter counter={counter} increamentCount={increamentCount}/> }
-        />
-এখানে counter componenent এর render নামক props টা হচ্ছে একটা function যেটা আসলে 
-counter clickcounter component টাকে return করে,কিন্তু return করার সময় এর ভেতর
-counter আর increament counter এর value দিয়ে দেয়।
+    4. যেহেতু HoverCounter সরাররি Section এর ভেতর নাই,তাই একে আমরা Contnent এর ভেতর props 
+        আকারে দিয়ে দিলাম
+        <Content theme={theme}/>
+        এবার content এর একটা theme নামক props আছে যার value {theme} (অর্থ্যাৎ Dark)
+
+
+    5. theme কে conent এর ভেতর Destructure করে নিয়ে এসে Hover Counter এ pass করলাম।
+      export default function Content({theme}){
+        return (
+            <div>
+                <h1>This is a content</h1>
+                <Counter>
+                    {(count,increamentCount)=>
+                    <HoverCounter count={count} increamentCount={increamentCount} theme={theme}/> }
+                </Counter>
+            </div>
+        )
+      } 
+    }
+      
+    6. Finally HoverCounter theme নামে props recieve করলো।
+
+        const {count}=this.props
+        const {increamentCount}=this.props
+        const {theme}=this.props
+
+
 
 */
