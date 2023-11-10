@@ -11,10 +11,10 @@ class Counter extends React.Component {
     }
 
   render() {
-    const{render}=this.props  //props থেকে render নামে একটা function নিবে
+    const{children}=this.props  //props থেকে render নামে একটা function নিবে
     const {count}=this.state
     return (
-      render(count,this.increamentCount)
+      children(count,this.increamentCount)
     )
   }
 }

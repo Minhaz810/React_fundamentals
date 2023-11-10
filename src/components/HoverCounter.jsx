@@ -15,3 +15,15 @@ export default class HoverCounter extends React.Component{
     )
     }
 }
+
+/* 
+<counter>
+        {(count,increamentCount)=>
+        <HoverCounter count={count} increamentCount={increamentCount}/> }
+<counter/
+
+অর্থ্যাৎ ,আমাদের counter এর props হচ্ছে count আর increment count.
+destructure করে আনার পর 
+count={count(অর্থ্যাৎ counter থেকে যেই parameter পেয়েছে)}
+incrementCount={increamentCount (অর্থ্যাৎ counter থেকে যেই parameter পেয়েছে)}
+*/

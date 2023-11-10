@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import ClickCounter from './components/clickCounter';
-import HoverCounter from './components/HoverCounter';
+import Section from './components/section';
 import Counter from './components/counter';
 
 
@@ -13,13 +13,13 @@ function App() {
       <div className='app'>
         
         {/* <User render={(isLoggedIn)=>(isLoggedIn?"Chowdhury":"guest")}/> */}
-        <Counter render={(count,increamentCount)=>
-            <ClickCounter count={count} increamentCount={increamentCount}/> }
-        />
+        <Counter>
+        {(count,increamentCount)=>
+        <ClickCounter count={count} increamentCount={increamentCount}/> }
+        </Counter>
 
-        <Counter render={(count,increamentCount)=>
-            <HoverCounter count={count} increamentCount={increamentCount}/> }
-        />
+        
+        <Section/>
 
       </div>
     </>
