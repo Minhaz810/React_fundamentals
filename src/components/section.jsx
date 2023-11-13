@@ -1,12 +1,19 @@
 import Content from "./content"
-export default function Section({theme}){
+import React from "react"
+export default class Section extends React.Component{
+    shouldComponentUpdate(){
+        return false
+    }
+    render(){
+    console.log("Section Rendered")
     return(
         <div>
             <h1>
                 This is a section
             </h1>
-            <Content theme={theme}/>
+            <Content/>
 
         </div>
     )
+    }
 }

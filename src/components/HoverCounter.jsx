@@ -1,11 +1,20 @@
 import React from "react"
-export default function HoverCounter({count,increamentCount,theme}){
+export default function HoverCounter(props){
+   const {count,increamentCount,theme,changeTheme}=props;
     const style=theme==='dark'?{backgroundColor:'#000000', color:'#ffffff'}:null;
+    let x=''
+    if(theme=='dark'){
+        x='Light'
+    }else{
+        x='Dark'
+    }
+    console.log("HoverCounter Rendered")
     return (
     <div>
         <h1 onMouseOver={increamentCount} style={style}>
             Hovered {count} times
         </h1>
+        <button type="button" onClick={changeTheme}>{`Change To ${x}`}</button>
     </div>
     )
 }

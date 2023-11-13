@@ -1,23 +1,23 @@
-<<<<<<< HEAD
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-=======
 
 import ClickCounter from './components/clickCounter';
 import Section from './components/section';
 import Counter from './components/counter';
 import React from 'react';
 import themeContext from './components/context/themecontext';
->>>>>>> Context_API
 
 export default class App extends React.Component{
       state={
-        theme:'dark'
+        theme:'dark',
+        changeTheme:()=>{
+          this.setState((prevState)=>(
+            {
+              theme: prevState.theme==='dark'?'light':'dark'
+            }
+          ))
+        }
       }
+     
       render(){
-        const {theme}=this.state
         return (
           <>
             <div className='app'>
@@ -29,7 +29,7 @@ export default class App extends React.Component{
               </Counter>
 
               
-              <themeContext.Provider value={{theme:this.state.theme}}>
+              <themeContext.Provider value={this.state}>
                 <Section/>
               </themeContext.Provider>
 
@@ -39,20 +39,6 @@ export default class App extends React.Component{
       }
 }
 
-<<<<<<< HEAD
-export default App
-
-
-
-
-
-
-
-
-
-
-
-=======
 /*
 
 ==>ধরা যাক,আমরা APP এর একটা state কে component এর ভেতর use করতে চাচ্ছি।
@@ -114,4 +100,3 @@ export default App
 
 
 */
->>>>>>> Context_API
