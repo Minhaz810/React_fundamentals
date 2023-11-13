@@ -1,37 +1,45 @@
+<<<<<<< HEAD
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+=======
 
-function App() {
-  const [count, setCount] = useState(0)
+import ClickCounter from './components/clickCounter';
+import Section from './components/section';
+import Counter from './components/counter';
+import React from 'react';
+import themeContext from './components/context/themecontext';
+>>>>>>> Context_API
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+export default class App extends React.Component{
+      state={
+        theme:'dark'
+      }
+      render(){
+        const {theme}=this.state
+        return (
+          <>
+            <div className='app'>
+              
+              {/* <User render={(isLoggedIn)=>(isLoggedIn?"Chowdhury":"guest")}/> */}
+              <Counter>
+                {(count,increamentCount)=>
+                <ClickCounter count={count} increamentCount={increamentCount}/> }
+              </Counter>
+
+              
+              <themeContext.Provider value={{theme:this.state.theme}}>
+                <Section/>
+              </themeContext.Provider>
+
+            </div>
+          </>
+        )
+      }
 }
 
+<<<<<<< HEAD
 export default App
 
 
@@ -44,3 +52,66 @@ export default App
 
 
 
+=======
+/*
+
+==>ধরা যাক,আমরা APP এর একটা state কে component এর ভেতর use করতে চাচ্ছি।
+
+==>state={
+        theme:'dark'
+      }
+==> আমি চাচ্ছি theme টা চলে যাক hoverCounter এর কাছে।
+    
+    যদি আমরা props drilling এর মাধ্যেমে করি:
+
+    1. Destructure করে theme কে নিয়ে আসলাম
+      const {theme}=this.state 
+
+
+    2. Section component এ theme কে দিয়ে দিলাম
+      <Section theme={theme}/>
+
+
+    3.Section সেটাকে Destructure করে Receive করলো।
+      export default function Section({theme}){
+      return(
+          <div>
+              <h1>
+                  This is a section
+              </h1>
+              <Content/>
+
+          </div>
+      )
+
+
+    4. যেহেতু HoverCounter সরাররি Section এর ভেতর নাই,তাই একে আমরা Contnent এর ভেতর props 
+        আকারে দিয়ে দিলাম
+        <Content theme={theme}/>
+        এবার content এর একটা theme নামক props আছে যার value {theme} (অর্থ্যাৎ Dark)
+
+
+    5. theme কে conent এর ভেতর Destructure করে নিয়ে এসে Hover Counter এ pass করলাম।
+      export default function Content({theme}){
+        return (
+            <div>
+                <h1>This is a content</h1>
+                <Counter>
+                    {(count,increamentCount)=>
+                    <HoverCounter count={count} increamentCount={increamentCount} theme={theme}/> }
+                </Counter>
+            </div>
+        )
+      } 
+    }
+      
+    6. Finally HoverCounter theme নামে props recieve করলো।
+
+        const {count}=this.props
+        const {increamentCount}=this.props
+        const {theme}=this.props
+
+
+
+*/
+>>>>>>> Context_API
