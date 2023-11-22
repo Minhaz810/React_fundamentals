@@ -46,12 +46,11 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle/>
-        <ThemeContext.Provider value={{ChangeTheme:ChangeTheme}}>
+        <ThemeContext.Provider value={{theme:theme,Change:ChangeTheme}}>
           <Tutorial>
           </Tutorial>
         </ThemeContext.Provider>
       </ThemeProvider>
-      
       
     </>
   )

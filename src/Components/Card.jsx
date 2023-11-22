@@ -5,16 +5,11 @@ import { StyledCard } from './styles/Container.styles'
 import { Content } from './styles/Container.styles'
 import { H1 ,P,ButtonContainer,Image} from './styles/Container.styles'
 import { StyledTitle } from './styles/custom.styles'
-import { ThemeContext } from 'styled-components'
+import ChangeButton from './ChangeButton'
 function Card(){
     return(
         <div> 
-            <div className="changeButton">
-                <ThemeContext.Consumer>{
-                    ({ChangeTheme})=><button onClick={()=>ChangeTheme()}>Click Here</button>
-                    }
-                </ThemeContext.Consumer>
-            </div>
+            <ChangeButton/>
             <StyledCard>
                 <Content>
                     <Tag color='#0c1434'>
@@ -23,7 +18,7 @@ function Card(){
                     <H1><StyledTitle text="React Styled Component"/></H1>
                     <P>
                         Exclusive React Js Tutorial on Styled Components where you will 
-                        learn why we nedd this and how to use it.
+                        learn why we need this and how to use it.
                     </P>
                     <ButtonContainer>
                         <Button link="https://lwsbd.link/rsc" text="Watch now" />

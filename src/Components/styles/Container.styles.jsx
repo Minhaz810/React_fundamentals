@@ -96,3 +96,16 @@ export const Image=styled.img`
     right: -30px;
     z-index: 0;
 `
+export const ChangeButtonContainer=styled.button`
+     display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      border: 2px solid #eaeef0; /* Border color */
+      border-radius: 20px; /* Adjust the value to control the roundness */
+      color: ${(props)=>props.color}; /* Text color */
+      background-color: ${(props)=>props.backgroundColor}; /* Background color */
+      transition: background-color 0.3s, color 0.3s;
+`
