@@ -41,7 +41,7 @@ img {
 }
 
 h1 {
-  color: #000000;
+  color: #ffffff;
 }
 
 p {
@@ -111,4 +111,13 @@ p {
 
 .buttons a:nth-of-type(2) {
   border-radius: 0px 50px 50px 0;
+}
+.changeButton button{
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s, color 0.3s;
 }

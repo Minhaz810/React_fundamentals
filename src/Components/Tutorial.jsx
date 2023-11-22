@@ -1,4 +1,4 @@
-import Container from "./Container"
+import {Container} from "./styles/Container.styles"
 import Card from "./Card"
 function Tutorial(){
     return(

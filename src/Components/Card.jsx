@@ -1,31 +1,36 @@
 import nerdImage from '../assets/images/illustration.png'
-import Content from "./Content"
 import Button from "./Button"
-import Tag from "./Tag"
-import Image from "./image"
+import { Tag } from './styles/Container.styles'
+import { StyledCard } from './styles/Container.styles'
+import { Content } from './styles/Container.styles'
+import { H1 ,P,ButtonContainer,Image} from './styles/Container.styles'
+import { StyledTitle } from './styles/custom.styles'
 function Card(){
+    console.log(P)
     return(
         <div>
             <div className="changeButton">
                 <button>Change Theme</button>
             </div>
-            <div className="card">
+            <StyledCard>
                 <Content>
-                    <Tag text="EXCLUSIVE"/>
-                    <h1>React Styled Component</h1>
-                    <p>
+                    <Tag color='#0c1434'>
+                        EXCLUSIVE
+                    </Tag>
+                    <H1><StyledTitle text="React Styled Component"/></H1>
+                    <P>
                         Exclusive React Js Tutorial on Styled Components where you will 
                         learn why we nedd this and how to use it.
-                    </p>
-                    <div className="buttons">
+                    </P>
+                    <ButtonContainer>
                         <Button link="https://lwsbd.link/rsc" text="Watch now" />
                         <Button link="https://lwsbd.link/react" text="Github repo" />
 
-                    </div>
+                    </ButtonContainer>
                     
                 </Content>
                 <Image src={nerdImage} alt="Nerd" width="300px" />
-            </div>
+            </StyledCard>
             
         </div>
     )
