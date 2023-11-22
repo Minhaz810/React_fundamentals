@@ -4,13 +4,13 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     font-family: "Montserrat", sans-serif;
-    background: #000000;
+    background: ${(props)=>props.theme.wrapperColor};
     width: 100%;
     height: 100vh;
 `
 export const StyledCard=styled.div`
     position: relative;
-    background: #401212;
+    background: ${(props)=>props.theme.cardColor};
     height: 350px;
     width: 550px;
     overflow: hidden;
@@ -40,7 +40,7 @@ export const P=styled.p`
     width: 280px;
     font-size: 13px;
     line-height: 1.4;
-    color: #faf4f4;
+    color: ${(props)=>props.theme.paragraphColor};
     margin: 20px 0;
 `
 export const ButtonContainer=styled.div`
@@ -53,7 +53,7 @@ export const ButtonContainer=styled.div`
         overflow: hidden;
         position: relative;
         font-size: 11px;
-        color: #aaa;
+        color:${(props)=>props.theme.buttonColor};
         text-decoration: none;
         padding: 10px 15px;
         border: 1px solid #333;
@@ -73,7 +73,7 @@ export const ButtonContainer=styled.div`
             transform-origin: right;
         }
         &:hover{
-            color: #fff;
+            color: ${(props)=>props.theme.buttonHoverColor};
             transition: all 0.5s ease;
             &:after{
                 width: 150%;

@@ -5,12 +5,15 @@ import { StyledCard } from './styles/Container.styles'
 import { Content } from './styles/Container.styles'
 import { H1 ,P,ButtonContainer,Image} from './styles/Container.styles'
 import { StyledTitle } from './styles/custom.styles'
+import { ThemeContext } from 'styled-components'
 function Card(){
-    console.log(P)
     return(
-        <div>
+        <div> 
             <div className="changeButton">
-                <button>Change Theme</button>
+                <ThemeContext.Consumer>{
+                    ({ChangeTheme})=><button onClick={()=>ChangeTheme()}>Click Here</button>
+                    }
+                </ThemeContext.Consumer>
             </div>
             <StyledCard>
                 <Content>
